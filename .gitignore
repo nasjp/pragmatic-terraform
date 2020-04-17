@@ -1,0 +1,10 @@
+.credential
+
+**/.terraform/*
+
+*.tfstate
+*.tfstate.*
+
+*.tfvars
+
+*.envrc
