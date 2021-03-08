@@ -1,4 +1,4 @@
-variable env {}
+variable "env" {}
 
 locals {
   example_instance_type = var.env == "prod" ? "m5.large" : "t3.micro"
