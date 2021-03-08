@@ -3,5 +3,5 @@
 Refs: <https://github.com/tmknom/example-pragmatic-terraform-on-aws>
 
 ```sh
-eval (assume-role progmatic-terraform)
+eval (assume-role pragmatic-terraform)
 ```
