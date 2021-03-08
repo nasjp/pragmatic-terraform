@@ -1,5 +1,3 @@
-.credential
-
 **/.terraform/*
 
 *.tfstate
