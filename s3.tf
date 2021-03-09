@@ -13,7 +13,8 @@ resource "aws_s3_bucket" "private" {
     }
   }
 
-  # force_destroy = true
+  # サンプルだからtrueにしとく
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_public_access_block" "private" {
@@ -36,7 +37,8 @@ resource "aws_s3_bucket" "public" {
     max_age_seconds = 3000
   }
 
-  # force_destroy = true
+  # サンプルだからtrueにしとく
+  force_destroy = true
 }
 
 resource "aws_s3_bucket" "alb_log" {
@@ -49,7 +51,8 @@ resource "aws_s3_bucket" "alb_log" {
     }
   }
 
-  # force_destroy = true
+  # サンプルだからtrueにしとく
+  force_destroy = true
 }
 
 resource "aws_s3_bucket_policy" "alb_log" {
