@@ -20,6 +20,10 @@ aws ssm put-parameter --name 'encryption_name' --value 'encryption value' --type
 aws ssm get-parameter --output text --name 'encryption_name' --query Parameter.Value --with-decryption
 ```
 
+## Note
+
+RDS、ElastiCacheは低スペックな安いインスタンスタイプを指定しているので、applyが遅い
+
 ## References
 
 - [実践Terraform　AWSにおけるシステム設計とベストプラクティス](https://www.amazon.co.jp/dp/4844378139/ref=cm_sw_em_r_mt_dp_G0QW8N22XPY6QN9XBS1Z)
