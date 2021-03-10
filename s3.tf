@@ -72,3 +72,18 @@ data "aws_iam_policy_document" "alb_log" {
     }
   }
 }
+
+// pipeline用
+resource "aws_s3_bucket" "artifact" {
+  bucket = "artifact-pragmatic-terraform-on-aws-nasjp"
+
+  lifecycle_rule {
+    enabled = true
+    expiration {
+      days = "180"
+    }
+  }
+
+  # サンプルだからtrueにしとく
+  force_destroy = true
+}

@@ -1,6 +1,6 @@
 # Pragmatic Terraform on AWS
 
-```sh
+```fish
 eval (assume-role pragmatic-terraform)
 ```
 
@@ -19,6 +19,24 @@ aws ssm put-parameter --name 'encryption_name' --value 'encryption value' --type
 # decryption get
 aws ssm get-parameter --output text --name 'encryption_name' --query Parameter.Value --with-decryption
 ```
+
+## Amazon Elastic Container Registry
+
+```fish
+eval (aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+set AWS_ECR_URL (aws ecr describe-repositories --repository-names example --output text --query "repositories[0].repositoryUri")
+docker build -t "$AWS_ECR_URL":latest .
+docker push "$AWS_ECR_URL":latest
+set AWS_ECR_URL
+```
+
+## GitHub Token
+
+1. Access <https://github.com/settings/tokens>
+2. Personal access tokens
+3. Generate new token
+4. Check `repo` and `admin:repo_hook`
+5. Execute `set GITHUB_TOKEN xxxxxxxx` (on `fish`)
 
 ## Note
 
