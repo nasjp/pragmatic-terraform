@@ -24,10 +24,6 @@ resource "aws_lb" "example" {
   ]
 }
 
-output "alb_dns_name" {
-  value = aws_lb.example.dns_name
-}
-
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.example.arn
   port              = 80

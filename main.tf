@@ -1,13 +1,3 @@
-terraform {
-  required_version = ">= 0.12"
-}
-
-provider "aws" {
-  region = "ap-northeast-1"
-
-  version = "= 3.31"
-}
-
 /* iam */
 module "describe_regins_for_ec2" {
   source     = "./iam_role"

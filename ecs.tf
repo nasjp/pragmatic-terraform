@@ -42,8 +42,6 @@ resource "aws_ecs_service" "example" {
   }
 }
 
-
-
 # バッチ用
 resource "aws_ecs_task_definition" "example_batch" {
   family                   = "example-batch"

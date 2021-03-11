@@ -18,8 +18,6 @@ resource "aws_codebuild_project" "example" {
   }
 }
 
-variable "github_token" {}
-
 resource "aws_codepipeline" "example" {
   name     = "example"
   role_arn = module.codepipeline_role.iam_role_arn

@@ -6,10 +6,6 @@ resource "aws_instance" "example_for_operation" {
   user_data            = file("./user_data.sh")
 }
 
-output "operation_instance_id" {
-  value = aws_instance.example_for_operation.id
-}
-
 resource "aws_ssm_document" "session_manager_run_shell" {
   name            = "SSM-SessionManagerRunShell"
   document_type   = "Session"
