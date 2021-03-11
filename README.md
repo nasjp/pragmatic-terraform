@@ -44,6 +44,12 @@ set AWS_ECR_URL
 aws ssm start-session --target i-XXXXXXXXXXXXXXXXX
 ```
 
+## Amazon Athena
+
+### Create table
+
+<https://docs.aws.amazon.com/ja_jp/athena/latest/ug/application-load-balancer-logs.html>
+
 ## Note
 
 RDS、ElastiCacheは低スペックな安いインスタンスタイプを指定しているので、applyが遅い
