@@ -115,6 +115,43 @@ data "aws_iam_policy_document" "codepipeline" {
   }
 }
 
+// session manager用
+data "aws_iam_policy" "ec2_for_ssm" {
+  arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+}
+
+data "aws_iam_policy_document" "ec2_for_ssm" {
+  source_json = data.aws_iam_policy.ec2_for_ssm.policy
+
+  statement {
+    effect    = "Allow"
+    resources = ["*"]
+
+    actions = [
+      "ecr:GetAuthorizationToken",
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:GetDownloadUrlForLayer",
+      "ecr:BatchGetImage",
+      "ssm:GetParameter",
+      "ssm:GetParameters",
+      "ssm:GetParametersByPath",
+      "kms:Decrypt",
+    ]
+  }
+}
+
+module "ec2_for_ssm_role" {
+  source     = "./iam_role"
+  name       = "ec2-for-ssm"
+  identifier = "ec2.amazonaws.com"
+  policy     = data.aws_iam_policy_document.ec2_for_ssm.json
+}
+
+resource "aws_iam_instance_profile" "ec2_for_ssm" {
+  name = "ec2-for-ssm"
+  role = module.ec2_for_ssm_role.iam_role_name
+}
+
 module "codepipeline_role" {
   source     = "./iam_role"
   name       = "codepipeline"

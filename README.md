@@ -38,6 +38,12 @@ set AWS_ECR_URL
 4. Check `repo` and `admin:repo_hook`
 5. Execute `set GITHUB_TOKEN xxxxxxxx` (on `fish`)
 
+## Session Manager Plugin
+
+```sh
+aws ssm start-session --target i-XXXXXXXXXXXXXXXXX
+```
+
 ## Note
 
 RDS、ElastiCacheは低スペックな安いインスタンスタイプを指定しているので、applyが遅い

@@ -87,3 +87,18 @@ resource "aws_s3_bucket" "artifact" {
   # サンプルだからtrueにしとく
   force_destroy = true
 }
+
+// system manager用
+resource "aws_s3_bucket" "operation" {
+  bucket = "operation-pragmatic-terraform-on-aws-nasjp"
+
+  lifecycle_rule {
+    enabled = true
+    expiration {
+      days = "180"
+    }
+  }
+
+  # サンプルだからtrueにしとく
+  force_destroy = true
+}
