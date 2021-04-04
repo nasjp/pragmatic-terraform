@@ -245,3 +245,13 @@ module "redis_sg" {
   port        = 6379
   cidr_blocks = [aws_vpc.example.cidr_block]
 }
+
+# // 別ディレクトリを参照
+# data "terraform_remote_state" "network" {
+#   backend = "s3"
+
+#   config = {
+#     bucket = "tfstate-pragmatic-terraform-on-aws-nasjp"
+#     key    = "network/terraform.tfstate"
+#   }
+# }
